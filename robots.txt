@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://toolnest-uj6m.vercel.app/sitemap.xml
+Sitemap: https://toolnest-ddv8.vercel.app/sitemap.xml
