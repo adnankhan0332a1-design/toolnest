@@ -118,5 +118,6 @@ function cleanText(){document.getElementById('cleanout').value=document.getEleme
 function dedupe(){document.getElementById('cleanout').value=[...new Set(document.getElementById('cleanin').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean))].join('\n')}
 function calcAge(){const d=new Date(document.getElementById('dob').value);if(isNaN(d)){ageres.textContent='Please choose a date.';return}const now=new Date();if(d>now){ageres.textContent='Birth date cannot be in the future.';return}let y=now.getFullYear()-d.getFullYear(),m=now.getMonth()-d.getMonth(),day=now.getDate()-d.getDate();if(day<0){m--;day+=new Date(now.getFullYear(),now.getMonth(),0).getDate()}if(m<0){y--;m+=12}ageres.textContent=`You are ${y} years, ${m} months and ${day} days old.`}
 </script>
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </body>
 </html>
