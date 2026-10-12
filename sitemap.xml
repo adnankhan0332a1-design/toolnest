@@ -1,16 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://toolnest-ddv8.vercel.app/</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-word-counter</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-percentage-calculator</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-image-resizer</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-password-generator</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-case-converter</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-text-cleaner</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-age-calculator</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-qr-generator</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-unit-converter</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-discount-calculator</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-bmi-calculator</loc></url>
-  <url><loc>https://toolnest-ddv8.vercel.app/tool-loan-calculator</loc></url>
-</urlset>
+import { MetadataRoute } from 'next'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://toolnest-ddv8.vercel.app'
+  
+  const tools = [
+    '/tools/image-compressor',
+    '/tools/qr-generator',
+    '/tools/word-counter',
+    '/tools/password-generator',
+    '/tools/case-converter',
+    '/tools/json-formatter',
+    '/tools/bg-remover',
+    '/tools/youtube-thumbnail-downloader',
+    '/tools/pdf-to-text',
+    '/tools/color-picker',
+    '/tools/unit-converter',
+    '/tools/age-calculator'
+  ];
+
+  const toolUrls = tools.map((tool) => ({
+    url: `${baseUrl}${tool}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1,
+    },
+    ...toolUrls
+  ]
+}
